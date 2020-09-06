@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update State</title>
+</head>
+<body>
+<form method="post" enctype="multipart/form-data" action="{% url 'updt_city' %}">
+    {% csrf_token %}
+<table class="table">
+    <tr>
+        <td>State ID</td>
+        <td><input type="number" value="{{ data.id }}" readonly name="s3"></td>
+    </tr>
+    <tr>
+        <td>State Name</td>
+        <td><input type="text" value="{{ data.name }}" name="s1"></td>
+    </tr>
+    <tr>
+        <td>State Images</td>
+        <td><input type="file" value="{{ data.image.url }}" name="s2"></td>
+    </tr>
+</table>
+    <button type="submit">Update</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>State</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+<form action="{% url 'save_state' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table class="table">
+        {{ form }}
+    </table>
+    <button type="submit">Save State</button>
+</form>
+
+{% if data %}
+<table class="table">
+<tr>
+    <th colspan="4">State Details</th>
+</tr>
+<tr>
+    <td>State ID</td>
+    <td>State Name</td>
+    <td>State Photo</td>
+    <td>Update</td>
+    <td>Delete</td>
+</tr>
+{% for x in data %}
+<tr>
+    <td>{{ x.id }}</td>
+    <td>{{ x.name }}</td>
+    <td><img src="{{ x.photo.url }}" width="200" height="200"></td>
+    <td>
+        <form action="{% url 'update_state' %}">
+            <input type="hidden" name="s1" value="{{ x.id }}">
+            <button type="submit">Update</button>
+        </form>
+    <td><a href="{% url 'delete_state' %}?no={{ x.id }}">Delete</a></td>
+</tr>
+{% endfor %}
+</table>
+{% endif %}
+</body>
+</html>
