@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete State</title>
+</head>
+<body>
+<h3>State Details</h3>
+<table>
+    <tr><td>
+        ID:
+    </td>
+        <td>
+           {{ data.id }}
+        </td>
+    </tr>
+    <tr>
+        <td>Name :</td>
+        <td>
+            {{ data.name }}
+        </td>
+    </tr>
+    <tr>
+        <td>Image</td>
+        <td>
+            <img src="{{ data.photo.url }}" height="200" width="200" alt="Image Not found"><br>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h5>Are you sure you want to delete?</h5>
+        </td>
+    </tr>
+</table>
+<a href="{% url 'delete_s' %}?no={{ data.id }}" type="button">Yes</a>
+<a href="{% url 'state' %}" type="button">No</a>
+</body>
+</html>

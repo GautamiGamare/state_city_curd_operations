@@ -11,11 +11,13 @@ urlpatterns = [
     path('update_state/',views.update_state,name='update_state'),
     path('updt_state/',views.updt_state,name='updt_state'),
     path('delete_state/',views.delete_state,name='delete_state'),
+    path('delete_s/',views.delete_s,name='delete_s'),
 
     path('save_city/',views.save_city,name='save_city'),
     path('update_city/',views.update_city,name='update_city'),
     path('updt_city/',views.updt_city,name='updt_city'),
     path('delete_city/',views.delete_city,name='delete_city'),
+    path('delt_city/',views.delt_city,name='delt_city'),
 
     path('add_cuisine/',views.add_cuisine,name='add_cuisine'),
     path('save_cuisine/',views.save_cuisine,name='save_cuisine'),

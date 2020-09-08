@@ -36,7 +36,12 @@
             <input type="hidden" name="s1" value="{{ x.id }}">
             <button type="submit">Update</button>
         </form>
-    <td><a href="{% url 'delete_state' %}?no={{ x.id }}">Delete</a></td>
+    <td>
+        <form action="{% url 'delete_state' %}">
+            <input type="hidden" name="no" value="{{ x.id }}">
+            <button type="submit">Delete</button>
+        </form>
+    </td>
 </tr>
 {% endfor %}
 </table>

@@ -28,7 +28,12 @@ def updt_state(req):
 
 def delete_state(req):
     num = req.GET.get('no')
-    StateModel.objects.get(id=num).delete()
+    st = StateModel.objects.get(id=num)
+    return render(req,'delete_state.html',{'data':st})
+
+def delete_s(req):
+    id = req.GET.get('no')
+    StateModel.objects.get(id=id).delete()
     return redirect('state')
 
 def city(req):
@@ -55,6 +60,11 @@ def updt_city(req):
     return redirect('city')
 
 def delete_city(req):
+    num = req.GET.get('no')
+    st = CityModel.objects.get(id=num)
+    return render(req, 'delete_city.html', {'data': st})
+
+def delt_city(req):
     num = req.GET.get('no')
     CityModel.objects.get(id=num).delete()
     return redirect('city')
